@@ -1,0 +1,95 @@
+
+
+local ScreenGui = Instance.new("ScreenGui")
+local mainframe = Instance.new("Frame")
+local titlegui = Instance.new("TextLabel")
+local creds = Instance.new("TextLabel")
+local speedbox = Instance.new("TextBox")
+local activatebutton = Instance.new("TextButton")
+local resetbutton = Instance.new("TextButton")
+
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+mainframe.Name = "mainframe"
+mainframe.Parent = ScreenGui
+mainframe.BackgroundColor3 = Color3.fromRGB(62, 162, 255)
+mainframe.Position = UDim2.new(0.0123838782, 0, 0.627764165, 0)
+mainframe.Size = UDim2.new(0, 362, 0, 276)
+mainframe.Active = true
+mainframe.Draggable = true
+
+titlegui.Name = "titlegui"
+titlegui.Parent = mainframe
+titlegui.BackgroundColor3 = Color3.fromRGB(204, 142, 255)
+titlegui.Size = UDim2.new(0, 362, 0, 50)
+titlegui.Font = Enum.Font.Cartoon
+titlegui.Text = "Custom Speed GUI"
+titlegui.TextColor3 = Color3.fromRGB(0, 0, 0)
+titlegui.TextSize = 20.000
+
+creds.Name = "creds"
+creds.Parent = mainframe
+creds.BackgroundColor3 = Color3.fromRGB(204, 142, 255)
+creds.Position = UDim2.new(0, 0, 0.818840563, 0)
+creds.Size = UDim2.new(0, 362, 0, 50)
+creds.Font = Enum.Font.Cartoon
+creds.Text = "simple script by 'xyn 0001"
+creds.TextColor3 = Color3.fromRGB(0, 0, 0)
+creds.TextSize = 20.0000
+
+speedbox.Name = "speedbox"
+speedbox.Parent = mainframe
+speedbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+speedbox.Position = UDim2.new(0.223756909, 0, 0.260869563, 0)
+speedbox.Size = UDim2.new(0, 200, 0, 50)
+speedbox.Font = Enum.Font.SourceSans
+speedbox.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+speedbox.PlaceholderText = "Speed"
+speedbox.Text = ""
+speedbox.TextColor3 = Color3.fromRGB(0, 0, 0)
+speedbox.TextSize = 14.000
+
+activatebutton.Name = "activatebutton"
+activatebutton.Parent = mainframe
+activatebutton.BackgroundColor3 = Color3.fromRGB(0, 255, 21)
+activatebutton.Position = UDim2.new(0.776243091, 0, 0.260869563, 0)
+activatebutton.Size = UDim2.new(0, 52, 0, 50)
+activatebutton.Font = Enum.Font.SourceSans
+activatebutton.Text = "Activate"
+activatebutton.TextColor3 = Color3.fromRGB(0, 0, 0)
+activatebutton.TextSize = 14.000
+
+resetbutton.Name = "resetbutton"
+resetbutton.Parent = mainframe
+resetbutton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+resetbutton.Position = UDim2.new(0.0911602229, 0, 0.260869563, 0)
+resetbutton.Size = UDim2.new(0, 48, 0, 50)
+resetbutton.Font = Enum.Font.SourceSans
+resetbutton.Text = "Reset"
+resetbutton.TextColor3 = Color3.fromRGB(0, 0, 0)
+resetbutton.TextSize = 14.000
+
+--Scripts:
+
+activatebutton.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speedbox.Text
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Mat_Devv's Walkspeed GUI";
+		Text = "Speed has been set to".. speedbox.Text;
+		Icon = "";
+		Duration = "2";
+	})
+end)
+
+resetbutton.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Mat_Devv's Walkspeed GUI";
+		Text = "Your speed has been reset.";
+		Icon = "";
+		Duration = "2";
+	})
+
+end)
